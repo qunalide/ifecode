@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{ border: 1px solid #55555555;
+        margin: 10px 10px 10px 10px;
+            padding: 10px 10px 10px 10px;;
+
+        height: 100%;}
+
+    </style>
+</head>
+<body>
+<div>
+<input id="first-number" type="number" value="0" placeholder="第一个数字">
+<input id="second-number" type="number" value="0" placeholder="第二个数字">
+<button id="add-btn">加</button>
+<button id="minus-btn">减</button>
+<button id="times-btn">乘</button>
+<button id="divide-btn">除</button>
+<p id="result">运算结果：</p>
+<script>
+    var numfirst = document.getElementById("first-number");
+    var numsecond=document.getElementById("second-number");
+    var numResult=document.getElementById("result");
+    var show=function(result,cf){
+        if(cf){numResult.innerHTML='除数不能是0'}else{ numResult.innerHTML='结果是：'+result;}
+    }
+    var contResult=function(type){
+        num1=Number(numfirst.value);
+        num2=Number(numsecond.value);
+        var result=0;
+        switch (type){
+            case '+': result = num1+num2;show(result); break;
+            case '-': result= num1-num2; show(result);break;
+            case '*': result= num1*num2;show(result); break;
+            case '/':
+
+                (num2==0)?show(result,true):show(result=num1/num2);
+                break;
+            default :;
+        }
+    }
+    document.getElementById("add-btn").addEventListener('click',function(){
+        contResult('+');
+    })
+    document.getElementById("minus-btn").addEventListener('click',function(){
+        contResult('-');
+    })
+    document.getElementById("times-btn").addEventListener('click',function(){
+        contResult('*');
+    })
+    document.getElementById("divide-btn").addEventListener('click',function(){
+        contResult('/');
+    })
+</script>
+
+</div>
+<div>
+<input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+<input id="bin-bit" type="number" placeholder="输入转化后二进制数字位数">
+<button id="trans-btn">转化为二进制</button>
+<p id="result2">运算结果：</p>
+<script>
+    function zh(number){
+
+        var result2= document.getElementById("result2");
+        if (Number(number)<0) {
+            result2.innerHTML = '需转化数字请输入十进制非负整数';}
+        else{
+            number=Number(number).toString(2);
+            result2.innerHTML='运算结果：'+number;
+        }
+    }
+
+document.getElementById("trans-btn").addEventListener('click',function(){
+    var number=document.getElementById("dec-number").value;
+    zh(number);
+});
+</script>
+</div>
+
+<div><h1>关于3的小游戏</h1>
+<p>3的小游戏，练习使用循环和条件语句，实现如下需求：从1到100，以此在console输出各数字，但是，当数字为3的倍数或者含有3的时候，输出“PA”</p>
+    <button id="game3">点击运行</button>
+    <span id="yxjg"></span>
+    <script>
+
+        var gameResult=[];
+        for(var i=0;i<=100;i++){
+            if(/3/.test(i)||i%3===0){
+                gameResult.push('PA');
+
+            }else{
+                gameResult.push(i);
+            }
+        }
+        document.getElementById("game3").addEventListener('click',function(){
+            document.getElementById("yxjg") .innerHTML = gameResult.join(',');
+        })
+
+
+    </script>
+</div>
+
+<div>
+    <h1>九九乘法表</h1>
+    <button id="table-btn">九九乘法表</button>
+    <table id="result4" cellspacing=0></table>
+    <script>
+        var tableBox = document.querySelector('#result4');
+        document.querySelector('#table-btn').addEventListener('click', function() {
+            var html = '';
+            for (var i = 1; i <= 9; i += 1) {
+                html += '<tr>';
+                for (var j = 1; j <= i; j += 1) {
+                    html += '<td>' + i + ' * ' + j + ' = ' + i * j + '</td>';
+                }
+                html += '</tr>'
+            }
+            tableBox.innerHTML = html;
+        });
+    </script>
+</div>
+
+</body>
+</html>
