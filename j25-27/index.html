@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+<p id="result"> </p>
+    <p id="result1"> </p>
+    <script>
+        var result = document.getElementById('result');
+        function checkTime(i)
+        {
+            if (i<10)
+            {i="0" + i}
+            return i
+        }
+        function checkWeek(week,lang){
+            if (lang==1){
+                switch (week)
+                {
+                    case 0:
+                        x="日";
+                        break;
+                    case 1:
+                        x="一";
+                        break;
+                    case 2:
+                        x="二";
+                        break;
+                    case 3:
+                        x="三";
+                        break;
+                    case 4:
+                        x="四";
+                        break;
+                    case 5:
+                        x="五";
+                        break;
+                    case 6:
+                        x="六";
+                        break;
+
+                }
+            }else{
+                switch (week)
+                {
+                    case 0:
+                      var x="Sunday";
+                        break;
+                    case 1:
+                        x="Monday";
+                        break;
+                    case 2:
+                        x="Tuesday";
+                        break;
+                    case 3:
+                        x="Wednesday";
+                        break;
+                    case 4:
+                        x="Thursday";
+                        break;
+                    case 5:
+                        x="Friday";
+                        break;
+                    case 6:
+                        x="Saturday";
+                        break;
+                }
+            }
+            return x;
+        }
+        function ontime(){
+            var time = new Date();
+            var month= time.getMonth()+1;
+            var date= time.getDate();
+            var week=time.getDay();
+            var h=checkTime(time.getHours());
+            var m=checkTime(time.getMinutes());
+            var s=checkTime(time.getSeconds());
+            result.innerHTML = time.getFullYear() +'年'+ month +'月'+date+'日'+'星期'+checkWeek(week,1)+h+':'+m+':'+s;
+            result1.innerHTML = time.getFullYear() +'-'+ month +'-'+date+'-'+checkWeek(week,0)+h+':'+m+':'+s;
+        }
+      setInterval('ontime()',1000);
+
+
+    </script>
+</div>
+
+</body>
+</html>

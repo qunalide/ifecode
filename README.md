@@ -21,3 +21,12 @@
 掌握如何通过 JavaScript 操作 DOM 的样式
   <br>
   [预览](https://qunalide.github.io/ifecode/j20-21/) 
+## j22-24
+掌握 JavaScript 中的各个数据类型、对象的概念及常用方法
+<br>
+  [预览](https://qunalide.github.io/ifecode/j22-24/) 
+## j25-27
+学习 JavaScript 的函数，学习如何使用和封装函数，学习Date对象
+<br>
+  [预览](https://qunalide.github.io/ifecode/j25-27/) 
+	
