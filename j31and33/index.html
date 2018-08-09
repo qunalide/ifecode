@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="region-select">
+    <option>华东</option>
+    <option>华南</option>
+    <option>华北</option>
+</select>
+
+<input type="checkbox" id="phone">手机
+<input type="checkbox" id="notebook">笔记本
+<input type="checkbox" id="sound">音响
+<input type="checkbox" name="all" id="checkbox">全选
+
+<div id="tablewrapper">
+
+</div>
+<div id="tablewrapper2">
+</div>
+
+<script>
+    let region = document.getElementById('region-select');
+let phone = document.getElementById('phone');
+let sound = document.getElementById('sound');
+let notebook = document.getElementById('notebook');
+let all = document.getElementById('checkbox');
+
+window.onload = function(){
+getDate('all','all');
+};
+
+region.addEventListener('change',function () {
+    console.log(this.value);
+    getDate(this.value,'all');
+
+});
+
+phone.onclick = function () {
+    console.log('phone');
+    getDate(all,'手机');
+
+}
+sound.onclick = function(){
+    console.log('sound');
+
+}
+
+notebook.onclick = function(){
+    console.log('notebook')
+}
+
+
+function checkDate(region,product) {
+    let sourceData = [{
+        product: "手机",
+        region: "华东",
+        sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
+    }, {
+        product: "手机",
+        region: "华北",
+        sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+    }, {
+        product: "手机",
+        region: "华南",
+        sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
+    }, {
+        product: "笔记本",
+        region: "华东",
+        sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
+    }, {
+        product: "笔记本",
+        region: "华北",
+        sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
+    }, {
+        product: "笔记本",
+        region: "华南",
+        sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
+    }, {
+        product: "智能音箱",
+        region: "华东",
+        sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
+    }, {
+        product: "智能音箱",
+        region: "华北",
+        sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
+    }, {
+        product: "智能音箱",
+        region: "华南",
+        sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
+    }]
+
+
+
+}
+
+function getDate(region,product) {
+    let sourceData = [{
+        product: "手机",
+        region: "华东",
+        sale: [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270]
+    }, {
+        product: "手机",
+        region: "华北",
+        sale: [80, 70, 90, 110, 130, 145, 150, 160, 170, 185, 190, 200]
+    }, {
+        product: "手机",
+        region: "华南",
+        sale: [220, 200, 240, 250, 260, 270, 280, 295, 310, 335, 355, 380]
+    }, {
+        product: "笔记本",
+        region: "华东",
+        sale: [50, 60, 80, 110, 30, 20, 70, 30, 420, 30, 20, 20]
+    }, {
+        product: "笔记本",
+        region: "华北",
+        sale: [30, 35, 50, 70, 20, 15, 30, 50, 710, 130, 20, 20]
+    }, {
+        product: "笔记本",
+        region: "华南",
+        sale: [80, 120, 130, 140, 70, 75, 120, 90, 550, 120, 110, 100]
+    }, {
+        product: "智能音箱",
+        region: "华东",
+        sale: [10, 30, 4, 5, 6, 5, 4, 5, 6, 5, 5, 25]
+    }, {
+        product: "智能音箱",
+        region: "华北",
+        sale: [15, 50, 15, 15, 12, 11, 11, 12, 12, 14, 12, 40]
+    }, {
+        product: "智能音箱",
+        region: "华南",
+        sale: [10, 40, 10, 6, 5, 6, 8, 6, 6, 6, 7, 26]
+    }]
+if (region == 'all'&& product == 'all') changeData(sourceData);
+var newData= [];
+if (region == '华南'){
+    for (var i = 0;i<sourceData.length;i++){
+        if(sourceData[i].region=='华南')newData.push(sourceData[i]);
+    }
+    changeData(newData);
+}
+
+if(region == '华北'){
+    for(var i = 0; i<sourceData.length;i++){
+        if(sourceData[i].region=='华北')newData.push(sourceData[i]);
+    }
+    changeData(newData);
+}
+    if(region == '华东'){
+        for(var i = 0; i<sourceData.length;i++){
+            if(sourceData[i].region=='华东')newData.push(sourceData[i]);
+        }
+        changeData(newData);
+    }
+
+    if(product=='手机'){
+        for(var i = 0; i<sourceData.length;i++){
+            if(sourceData[i].product=='手机')newData.push(sourceData[i]);
+        }
+        changeData(newData);
+    }
+}
+
+function changeData(data){
+var newData =data;
+    var a = '';
+    var table = document.getElementById('tablewrapper')
+    for (var i = 0;i < newData.length;i++){
+        a = a + "<tr><td>" + newData[i].product + "</td>" + "<td>" + newData[i].region + "</td>" + "<td>" + newData[i].sale[0]
+            + "</td><td>" + newData[i].sale[1] + "</td><td>" + newData[i].sale[2] + "</td><td>" + newData[i].sale[3]
+            + "</td><td>" + newData[i].sale[4] + "</td><td>" + newData[i].sale[5] + "</td><td>" + newData[i].sale[6]
+            + "</td><td>" + newData[i].sale[7] + "</td><td>" + newData[i].sale[8] + "</td><td>" + newData[i].sale[9]
+            + "</td><td>"+ newData[i].sale[10] + "</td><td>"+ newData[i].sale[11] + "</td></tr>";
+    }
+
+table.innerHTML ='<h1>产品列表</h1>'+'<table border="1"><tbody><tr><td>产品</td><td>产地</td><td>一月</td><td>二月</td>' +
+    '<td>三月</td><td>四月</td><td>五月</td><td>六月</td><td>七月</td><td>八月</td><td>九月</td><td>十月</td><td>十一月</td><td>十二月</td></tr> '+ a + '</tbody></table>';
+
+
+}
+</script>
+
+<div id="table-wrapper">
+</div>
+<div id="table-wrapper2">
+</div>
+</body>
+</html>

@@ -29,4 +29,7 @@
 学习 JavaScript 的函数，学习如何使用和封装函数，学习Date对象
 <br>
   [预览](https://qunalide.github.io/ifecode/j25-27/) 
-	
+## j31and33
+我是精明的小卖家（一）MIS系统
+<br>
+  [预览](https://qunalide.github.io/ifecode/j31and33/) 
