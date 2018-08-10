@@ -2,7 +2,7 @@
 
 这里是用来存放我在做百度前端任务的练习代码。
 
-关于百度前端学院的详情请点击这里：[https://github.com/baidu-ife/ife](https://github.com/baidu-ife/ife)
+关于百度前端学院的详情请点击这里：[http://ife.baidu.com/](http://ife.baidu.com/)
 
 ---
 ## j16
